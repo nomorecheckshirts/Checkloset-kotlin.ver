@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "io.github.rullu16.checkloset"
+        applicationId "io.github.nomorecheckshirts.checkloset"
         minSdkVersion 30
         targetSdkVersion 30
         versionCode 1

@@ -1,4 +1,4 @@
-package io.github.rullu16.checkloset
+package io.github.nomorecheckshirts.checkloset
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

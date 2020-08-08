@@ -1,4 +1,4 @@
-package io.github.rullu16.checkloset
+package io.github.nomorecheckshirts.checkloset
 
 import org.junit.Test
 

@@ -2,7 +2,7 @@ package io.github.nomorecheckshirts.checkloset.dto
 
 class ClothesDto {
     var id: String = "01"
-    var imageFile: String = "image.jpeg" // 이건 파일 id를 저장할지, 이미지 정보를 저장할지 헷갈
+    var imageFile: String = "image.jpeg" // 이미지 정보
     var color = arrayOf(0.0f, 0.0f, 0.0f) // R G B
     var thick : Int=0
     var kind : String = "Outer"

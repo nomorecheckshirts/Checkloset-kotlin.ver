@@ -1,6 +1,6 @@
-package io.github.nomorecheckshirts.checkloset.dto
+package io.github.nomorecheckshirts.checkloset.entity
 
-class ClothesDto {
+class Clothes {
     var id: String = "01"
     var imageFile: String = "image.jpeg" // 이미지 정보
     var color = arrayOf(0.0f, 0.0f, 0.0f) // R G B

@@ -2,22 +2,21 @@ package io.github.nomorecheckshirts.checkloset.dao
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import io.github.nomorecheckshirts.checkloset.MainActivity
 import io.github.nomorecheckshirts.checkloset.db.DBHelper
-import io.github.nomorecheckshirts.checkloset.dto.ClothesDto
+import io.github.nomorecheckshirts.checkloset.entity.Clothes
 
 class ClothesDao {
     private val TABLE_NAME="CLOTHES"
-    val allClothes:List<ClothesDto>
+    val allClothes:List<Clothes>
             get(){
-                val lstClothes=ArrayList<ClothesDto>()
+                val lstClothes=ArrayList<Clothes>()
                 val selectQueryHandler = "Select * from clothes"
                 val db: SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
                 val cursor = db.rawQuery(selectQueryHandler, null)
                 if(cursor.moveToFirst()){
                     do{
-                        val clothes=ClothesDto()
+                        val clothes=Clothes()
                         //setting clothes
 
                         lstClothes.add(clothes)
@@ -27,7 +26,7 @@ class ClothesDao {
                 return lstClothes
             }
 
-    fun addClothes(clothes:ClothesDto){
+    fun addClothes(clothes:Clothes){
         val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
         val values = ContentValues()
 
@@ -35,7 +34,7 @@ class ClothesDao {
         db.close()
     }
 
-    fun updateClothes(clothes:ClothesDto){
+    fun updateClothes(clothes:Clothes){
         val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
         val values = ContentValues()
 
@@ -43,7 +42,7 @@ class ClothesDao {
         db.close()
     }
 
-    fun deleteClothes(clothes:ClothesDto){
+    fun deleteClothes(clothes:Clothes){
         val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
 
         //db.delete(parameters)

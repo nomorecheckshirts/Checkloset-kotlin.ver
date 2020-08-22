@@ -3,6 +3,7 @@ package io.github.nomorecheckshirts.checkloset.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import io.github.nomorecheckshirts.checkloset.MainActivity
 
 class DBHelper (context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VER){
@@ -13,9 +14,9 @@ class DBHelper (context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val CREATE_TABLE_QUERY=("CREATE TABLE Clothes (_id integer);")
+        val CREATE_TABLE_QUERY=("CREATE TABLE Clothes (_id integer)")
         db.execSQL(CREATE_TABLE_QUERY)
-        MainActivity().responseDB = "good"
+        Log.d("toTest", "success")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

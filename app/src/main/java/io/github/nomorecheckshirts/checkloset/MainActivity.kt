@@ -15,6 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         db= DBHelper(this)
-        val testdb=db.writableDatabase
+        val mydb=db.writableDatabase
     }
 }

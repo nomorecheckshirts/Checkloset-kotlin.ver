@@ -5,6 +5,5 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Clothes")
 data class Clothes (
-    @PrimaryKey(autoGenerate = true) var id: Int = 1){
-
-}
+    @PrimaryKey(autoGenerate = true) var id: Int = 1
+)

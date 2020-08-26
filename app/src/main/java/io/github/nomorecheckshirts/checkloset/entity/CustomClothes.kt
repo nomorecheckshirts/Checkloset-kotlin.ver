@@ -12,6 +12,5 @@ data class CustomClothes (
     @ColumnInfo(name = "thick") var thick : Int=0,
     @ColumnInfo(name = "kind") var kind : String = "Outer",
     //@ColumnInfo var tag: Array<String> = arrayOf("hello", "world", "it", "is", "for", "tag"),
-    @ColumnInfo(name = "note") var note : String = "notes"){
-
-}
+    @ColumnInfo(name = "note") var note : String = "notes"
+)

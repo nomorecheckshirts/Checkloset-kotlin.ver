@@ -1,11 +1,10 @@
 package io.github.nomorecheckshirts.checkloset.entity
 
-class Clothes {
-    var id:String = "0" // id 아니면 저장 위치?
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-    constructor(){}
+@Entity(tableName = "Clothes")
+data class Clothes (
+    @PrimaryKey(autoGenerate = true) var id: Int = 1){
 
-    constructor(id:String){
-        this.id=id;
-    }
 }

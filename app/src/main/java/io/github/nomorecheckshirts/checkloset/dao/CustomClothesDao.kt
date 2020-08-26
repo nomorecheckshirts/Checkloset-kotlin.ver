@@ -2,50 +2,26 @@ package io.github.nomorecheckshirts.checkloset.dao
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
 import io.github.nomorecheckshirts.checkloset.MainActivity
 import io.github.nomorecheckshirts.checkloset.db.DBHelper
 import io.github.nomorecheckshirts.checkloset.entity.CustomClothes
 
-class CustomClothesDao {
-    private val TABLE_NAME="CLOTHES"
-    val allClothes:List<CustomClothes>
-            get(){
-                val lstClothes=ArrayList<CustomClothes>()
-                val selectQueryHandler = "Select * from clothes"
-                val db: SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
-                val cursor = db.rawQuery(selectQueryHandler, null)
-                if(cursor.moveToFirst()){
-                    do{
-                        val clothes=CustomClothes()
-                        //setting clothes
+@Dao
+interface CustomClothesDao {
 
-                        lstClothes.add(clothes)
-                    }while(cursor.moveToNext())
-                }
-                db.close()
-                return lstClothes
-            }
+    @Query("Select * from CustomClothes")
+    fun getAll(): List<CustomClothes>
 
-    fun addClothes(customClothes:CustomClothes){
-        val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
-        val values = ContentValues()
+    @Query("Select * from CustomClothes where id in (:id)")
+    fun loadAllByIds(id: Int): List<CustomClothes>
 
-        db.insert(TABLE_NAME, null, values)
-        db.close()
-    }
+    @Insert
+    fun insertAll(vararg customClothes: CustomClothes)
 
-    fun updateClothes(customClothes:CustomClothes){
-        val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
-        val values = ContentValues()
-
-        //db.update(parameters)
-        db.close()
-    }
-
-    fun deleteClothes(customClothes:CustomClothes){
-        val db:SQLiteDatabase = DBHelper(MainActivity()).writableDatabase
-
-        //db.delete(parameters)
-        db.close()
-    }
+    @Delete
+    fun delete(customClothes: CustomClothes)
 }

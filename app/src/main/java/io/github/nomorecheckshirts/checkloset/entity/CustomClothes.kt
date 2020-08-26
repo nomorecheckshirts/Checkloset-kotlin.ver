@@ -1,24 +1,17 @@
 package io.github.nomorecheckshirts.checkloset.entity
 
-class CustomClothes {
-    var id: String = "01"
-    var imageFile: String = "image.jpeg" // 이미지 정보
-    var color = arrayOf(0.0f, 0.0f, 0.0f) // R G B
-    var thick : Int=0
-    var kind : String = "Outer"
-    var tag = arrayOf("hello", "world", "it", "is", "for", "tag")
-    var note : String = "notes"
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-    constructor(){}
+@Entity(tableName = "CustomClothes")
+data class CustomClothes (
+    @PrimaryKey(autoGenerate = true) var id: Int = 1,
+    @ColumnInfo(name = "image_file") var imageFile: String = "image.jpeg", // 이미지 정보
+    //@ColumnInfo var color: Array<Float> = arrayOf(0.0f, 0.0f, 0.0f), // R G B
+    @ColumnInfo(name = "thick") var thick : Int=0,
+    @ColumnInfo(name = "kind") var kind : String = "Outer",
+    //@ColumnInfo var tag: Array<String> = arrayOf("hello", "world", "it", "is", "for", "tag"),
+    @ColumnInfo(name = "note") var note : String = "notes"){
 
-    constructor(id:String, imageFile:String, color:Array<Float>,
-                thick:Int, kind:String, tag:Array<String>, note:String){
-        this.id=id;
-        this.imageFile=imageFile;
-        this.color=color;
-        this.thick=thick;
-        this.kind=kind;
-        this.tag=tag;
-        this.note=note;
-    }
 }

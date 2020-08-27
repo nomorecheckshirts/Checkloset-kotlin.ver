@@ -3,12 +3,12 @@ package io.github.nomorecheckshirts.checkloset
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_preference_.*
+import kotlinx.android.synthetic.main.activity_preference.*
 
-class Preference_Activity : AppCompatActivity() {
+class PreferenceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_preference_)
+        setContentView(R.layout.activity_preference)
 
         btn_home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

@@ -6,13 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import io.github.nomorecheckshirts.checkloset.dao.ClothesDao
 import io.github.nomorecheckshirts.checkloset.dao.CustomClothesDao
+import io.github.nomorecheckshirts.checkloset.dao.DomesticLocationDao
 import io.github.nomorecheckshirts.checkloset.entity.Clothes
 import io.github.nomorecheckshirts.checkloset.entity.CustomClothes
+import io.github.nomorecheckshirts.checkloset.entity.DomesticLocation
 
-@Database(entities = arrayOf(Clothes::class, CustomClothes::class), version = 1)
+@Database(entities = arrayOf(Clothes::class, CustomClothes::class, DomesticLocation::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun clothesDao() : ClothesDao
     abstract fun customClothesDao() : CustomClothesDao
+    abstract fun domesticLocationDao() : DomesticLocationDao
 
     companion object {
         private var instance: AppDatabase? = null

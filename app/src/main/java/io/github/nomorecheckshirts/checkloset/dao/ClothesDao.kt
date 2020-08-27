@@ -16,7 +16,7 @@ interface ClothesDao {
     fun loadAllByIds(id: Int): List<Clothes>
 
     @Insert
-    fun insertAll(vararg clothes: Clothes)
+    fun insert(vararg clothes: Clothes)
 
     @Delete
     fun delete(clothes: Clothes)

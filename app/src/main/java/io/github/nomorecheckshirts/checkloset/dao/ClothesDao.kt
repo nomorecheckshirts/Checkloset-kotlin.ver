@@ -1,9 +1,6 @@
 package io.github.nomorecheckshirts.checkloset.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import io.github.nomorecheckshirts.checkloset.entity.Clothes
 
 @Dao
@@ -15,7 +12,7 @@ interface ClothesDao {
     @Query("Select * from Clothes where id in (:id)")
     suspend fun loadAllByIds(id: Int): List<Clothes>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(vararg clothes: Clothes)
 
     @Delete

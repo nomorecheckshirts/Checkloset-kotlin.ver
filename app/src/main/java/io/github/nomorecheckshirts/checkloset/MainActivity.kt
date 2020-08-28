@@ -1,8 +1,10 @@
 package io.github.nomorecheckshirts.checkloset
 
+import android.content.Intent
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
 import io.github.nomorecheckshirts.checkloset.db.AppDatabase
 import io.github.nomorecheckshirts.checkloset.entity.Clothes
@@ -16,6 +18,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btn_start.setOnClickListener{
+            val intent = Intent(this, CalendarViewActivity::class.java)
+            startActivity(intent)
+        }
 
         var db= AppDatabase.getInstance(this)
 

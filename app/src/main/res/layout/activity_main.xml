@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:sothree="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/sliding_layout"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
-    sothree:umanoPanelHeight="38dp"
-    sothree:umanoOverlay="true"
-    sothree:umanoShadowHeight="0dp"
-    android:background="#00000000">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF">
-        <include layout="@layout/main_layout"/> <!-- 배경 -->
-    </LinearLayout>
+    tools:context=".MainActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:orientation="horizontal"
-        android:elevation="48dp" >
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START CHECKLOSET"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        />
 
-        <include layout="@layout/drawer_layout"/> <!-- 서랍 -->
-    </LinearLayout>
-</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

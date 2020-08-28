@@ -3,7 +3,7 @@ package io.github.nomorecheckshirts.checkloset
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.calendar_view.*
+import kotlinx.android.synthetic.main.calendar_view_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 

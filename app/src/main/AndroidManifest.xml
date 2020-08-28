@@ -12,6 +12,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         android:usesCleartextTraffic="true">
         <activity android:name="io.github.nomorecheckshirts.checkloset.MainActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"> <!--https 대신 http 사용 허가-->
+        <activity android:name=".PreferenceActivity"></activity>
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,5 +26,6 @@
         <activity android:name=".CalendarViewActivity"/>
         <activity android:name=".GalleryViewActivity"/>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" /> <!--인터넷 허용-->
 
 </manifest>

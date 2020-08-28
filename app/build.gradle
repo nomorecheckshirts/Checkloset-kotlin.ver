@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "io.github.nomorecheckshirts.checkloset"
-        minSdkVersion 29
+        minSdkVersion 30
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -31,6 +40,27 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //retrofit, gson 라이브러리
+//    implementation 'com.squareup.retrofit2:retrofit:2.8.0' // 날씨 관련 추가1
+////    implementation 'com.squareup.retrofit2:converter-gson:2.8.0' // 날씨 관련 추가2
+    implementation 'com.squareup.retrofit2:retrofit:2.8.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.0'
+
+    // kotlin serialization
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0" // JVM dependency
+
+    //retrofit - kotlin serialization 연동
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.5.0")
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+
+
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
     testImplementation 'junit:junit:4.12'

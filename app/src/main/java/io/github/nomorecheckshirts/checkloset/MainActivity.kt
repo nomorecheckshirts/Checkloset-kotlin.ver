@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
 import io.github.nomorecheckshirts.checkloset.db.AppDatabase
@@ -15,6 +16,17 @@ import kotlinx.coroutines.launch
 import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
+    var backPressWait : Long = 0
+
+    override fun onBackPressed() {
+        if(System.currentTimeMillis() - backPressWait >=2000 ) {
+            backPressWait = System.currentTimeMillis()
+            Toast.makeText(applicationContext, "Press back one more time to quit", Toast.LENGTH_LONG).show()
+        } else {
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +34,12 @@ class MainActivity : AppCompatActivity() {
         btn_start.setOnClickListener{
             val intent = Intent(this, CalendarViewActivity::class.java)
             startActivity(intent)
+        }
+
+        btn_preference.setOnClickListener {
+            val intent = Intent(this, PreferenceActivity::class.java)
+            startActivity(intent)
+
         }
 
         var db= AppDatabase.getInstance(this)

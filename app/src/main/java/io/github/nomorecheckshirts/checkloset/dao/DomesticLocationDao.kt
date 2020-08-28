@@ -11,14 +11,14 @@ import io.github.nomorecheckshirts.checkloset.entity.DomesticLocation
 interface DomesticLocationDao {
 
     @Query("Select * from DomesticLocation")
-    fun getAll(): List<DomesticLocation>
+    suspend fun getAll(): List<DomesticLocation>
 
     @Query("Select * from DomesticLocation where code in (:code)")
-    fun loadAllByIds(code: Int): List<DomesticLocation>
+    suspend fun loadAllByIds(code: Int): List<DomesticLocation>
 
     @Insert
-    fun insert(vararg domesticLocation: DomesticLocation)
+    suspend fun insert(vararg domesticLocation: DomesticLocation)
 
     @Delete
-    fun delete(domesticLocation: DomesticLocation)
+    suspend fun delete(domesticLocation: DomesticLocation)
 }

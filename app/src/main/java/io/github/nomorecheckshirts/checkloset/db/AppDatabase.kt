@@ -11,7 +11,7 @@ import io.github.nomorecheckshirts.checkloset.entity.Clothes
 import io.github.nomorecheckshirts.checkloset.entity.CustomClothes
 import io.github.nomorecheckshirts.checkloset.entity.DomesticLocation
 
-@Database(entities = arrayOf(Clothes::class, CustomClothes::class, DomesticLocation::class), version = 1)
+@Database(entities = [Clothes::class, CustomClothes::class, DomesticLocation::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun clothesDao() : ClothesDao
     abstract fun customClothesDao() : CustomClothesDao
@@ -27,9 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "ChecklosetDB.db"
-                )
-                    .allowMainThreadQueries()
-                    .build()
+                ).build()
             }
             return instance
         }

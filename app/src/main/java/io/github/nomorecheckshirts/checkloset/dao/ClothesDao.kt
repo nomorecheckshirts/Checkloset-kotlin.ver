@@ -10,14 +10,14 @@ import io.github.nomorecheckshirts.checkloset.entity.Clothes
 interface ClothesDao {
 
     @Query("Select * from Clothes")
-    fun getAll(): List<Clothes>
+    suspend fun getAll(): List<Clothes>
 
     @Query("Select * from Clothes where id in (:id)")
-    fun loadAllByIds(id: Int): List<Clothes>
+    suspend fun loadAllByIds(id: Int): List<Clothes>
 
     @Insert
-    fun insert(vararg clothes: Clothes)
+    suspend fun insert(vararg clothes: Clothes)
 
     @Delete
-    fun delete(clothes: Clothes)
+    suspend fun delete(clothes: Clothes)
 }

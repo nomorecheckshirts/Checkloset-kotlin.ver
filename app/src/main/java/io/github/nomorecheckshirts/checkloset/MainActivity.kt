@@ -22,15 +22,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        btn_start.setOnClickListener{
+            val intent = Intent(this, CalendarViewActivity::class.java)
+            startActivity(intent)
+        }
+
         btn_preference.setOnClickListener {
             val intent = Intent(this, PreferenceActivity::class.java)
             startActivity(intent)
-
-        }
-
-        btn_viewchange.setOnClickListener {
-            val intent2 = Intent(this, TestActivity::class.java)
-            startActivity(intent2)
 
         }
     }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="38dp"
+    sothree:umanoOverlay="true"
+    sothree:umanoShadowHeight="0dp"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+        <include layout="@layout/calendar_view_main"/> <!-- 배경 -->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="horizontal"
+        android:elevation="48dp" >
+
+        <include layout="@layout/drawer_layout"/> <!-- 서랍 -->
+    </LinearLayout>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

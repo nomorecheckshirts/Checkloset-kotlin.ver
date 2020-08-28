@@ -8,9 +8,11 @@ import androidx.room.PrimaryKey
 data class CustomClothes (
     @PrimaryKey(autoGenerate = true) var id: Int = 1,
     @ColumnInfo(name = "image_file") var imageFile: String = "image.jpeg", // 이미지 정보
-    //@ColumnInfo var color: Array<Float> = arrayOf(0.0f, 0.0f, 0.0f), // R G B
+    @ColumnInfo(name = "colorR") var colorR: Float = 0.0f,
+    @ColumnInfo(name = "colorG") var colorG: Float = 0.0f,
+    @ColumnInfo(name = "colorB") var colorB: Float = 0.0f,
     @ColumnInfo(name = "thick") var thick : Int=0,
     @ColumnInfo(name = "kind") var kind : String = "Outer",
-    //@ColumnInfo var tag: Array<String> = arrayOf("hello", "world", "it", "is", "for", "tag"),
+    @ColumnInfo(name = "tag") var tag: String = "tag",
     @ColumnInfo(name = "note") var note : String = "notes"
 )

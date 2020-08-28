@@ -42,9 +42,6 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch{
             var output = db!!.domesticLocationDao().getAll()
             Log.d("dbTest", "$output")
-
-            var testclothe = Clothes(23)
-            db.clothesDao().insert(testclothe)
         }
     }
 }

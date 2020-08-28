@@ -13,16 +13,18 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 val num_of_rows: Int = 10
 val page_no: Int = 1
 val data_type: String = "JSON"
-val base_time: String = "0500"
-val base_date: String = "20200827"
-val nx: Int = 59
-val ny: Int = 125
+var base_time: String = "0200"
+var base_date: String = "20200101"
+var nx: Int = 59
+var ny: Int = 125
 
 private val retrofit = Retrofit.Builder()
     .baseUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService/")
@@ -46,9 +48,30 @@ class TestActivity : AppCompatActivity() {
             finish()
         }
 
+
+        var currentTime = LocalDateTime.now()
+        var dateFormat = DateTimeFormatter.ofPattern("yyyyMMdd")
+        var timeFormat = DateTimeFormatter.ofPattern("hhmm")
+        var formattedDate: String = currentTime.format(dateFormat)
+        var formattedTime: String = currentTime.format(timeFormat)
+
+        //println("Current: $formatted")
+        base_date = formattedDate
+        base_time = formattedTime
+
+        println("Current: $base_date, $base_time")
+
         val call = ApiObject.retrofitService.GetWeather(data_type, num_of_rows, page_no, base_date, base_time, nx, ny)
         call.enqueue(object : retrofit2.Callback<WEATHER>{
             override fun onResponse(call: Call<WEATHER>, response: Response<WEATHER>) {
+
+                var codeValue: String = response.body()!!.response.body.items.item[0].category
+                var fcstValue: Float = response.body()!!.response.body.items.item[0].fcstValue
+                println("$codeValue, $fcstValue")
+                codeValue = response.body()!!.response.body.items.item[1].category
+                fcstValue = response.body()!!.response.body.items.item[1].fcstValue
+                println("$codeValue, $fcstValue")
+
                 if (response.isSuccessful){
                     Log.d("api", response.body().toString())
                     Log.d("api", response.body()!!.response.body.items.item.toString())
@@ -57,33 +80,8 @@ class TestActivity : AppCompatActivity() {
             }
             override fun onFailure(call: Call<WEATHER>, t: Throwable) {
                 Log.d("api fail : ", t.toString())
-            }
+        }
         })
 
-        val jsonString = """
-        {
-            "response":{
-                "header":{"resultCode":"00","resultMsg":"NORMAL_SERVICE"},
-                "body":{
-                    "dataType":"JSON","items":{
-                        "item":[
-                        {"baseDate":"20200826","baseTime":"2000","category":"POP","fcstDate":"20200827","fcstTime":"0000","fcstValue":"80","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"PTY","fcstDate":"20200827","fcstTime":"0000","fcstValue":"1","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"R06","fcstDate":"20200827","fcstTime":"0000","fcstValue":"10","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"REH","fcstDate":"20200827","fcstTime":"0000","fcstValue":"75","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"S06","fcstDate":"20200827","fcstTime":"0000","fcstValue":"0","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"SKY","fcstDate":"20200827","fcstTime":"0000","fcstValue":"4","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"T3H","fcstDate":"20200827","fcstTime":"0000","fcstValue":"28","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"UUU","fcstDate":"20200827","fcstTime":"0000","fcstValue":"-11.7","nx":59,"ny":125},   
-                        {"baseDate":"20200826","baseTime":"2000","category":"VEC","fcstDate":"20200827","fcstTime":"0000","fcstValue":"139","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"VVV","fcstDate":"20200827","fcstTime":"0000","fcstValue":"13.7","nx":59,"ny":125},
-                        {"baseDate":"20200826","baseTime":"2000","category":"WSD","fcstDate":"20200827","fcstTime":"0000","fcstValue":"18.1","nx":59,"ny":125}
-                        ]
-                    },
-                "pageNo":1,"numOfRows":11,"totalCount":175
-                }
-            }
-        }
-        """.trimIndent()
     }
 }

@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
             var input = DomesticLocation(token[0].toLong(), token[1], token[2], token[3], token[4].toInt(), token[5].toInt())
 
             Log.d("dbTest", input.toString())
-            //db!!.domesticLocationDao().insert(input)
+            db!!.domesticLocationDao().insert(input)
         }
 
-        /*var output = db!!.domesticLocationDao().getAll()
-        Log.d("dbTest", "$output")*/
+        var output = db!!.domesticLocationDao().getAll()
+        Log.d("dbTest", "$output")
     }
 }

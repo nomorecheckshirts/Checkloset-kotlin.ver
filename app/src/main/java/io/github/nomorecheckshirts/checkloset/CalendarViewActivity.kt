@@ -20,6 +20,12 @@ class CalendarViewActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
 
+        btn_preference.setOnClickListener {
+            val intent = Intent(this, PreferenceActivity::class.java)
+            startActivity(intent)
+
+        }
+
     }
 
     override fun onResume(){

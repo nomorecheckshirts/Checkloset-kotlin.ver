@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                 token[5].toInt()
             )
 
-            //Log.d("dbTest", input.toString())
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.domesticLocationDao().insert(input)
             }
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch{
             var output = db!!.domesticLocationDao().getAll()
-            //Log.d("dbTest", "$output")
         }
     }
 }

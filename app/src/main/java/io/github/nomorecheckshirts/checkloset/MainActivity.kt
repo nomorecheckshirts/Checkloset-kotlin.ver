@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btn_preference.setOnClickListener {
-            val intent = Intent(this, PreferenceActivity::class.java)
+        btn_weatherTest.setOnClickListener {
+            val intent = Intent(this, TestActivity::class.java)
             startActivity(intent)
 
         }
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 token[5].toInt()
             )
 
-            Log.d("dbTest", input.toString())
+            //Log.d("dbTest", input.toString())
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.domesticLocationDao().insert(input)
             }
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch{
             var output = db!!.domesticLocationDao().getAll()
-            Log.d("dbTest", "$output")
+            //Log.d("dbTest", "$output")
         }
     }
 }

@@ -18,11 +18,12 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-val num_of_rows: Int = 10
+val num_of_rows: Int = 100
 val page_no: Int = 1
 val data_type: String = "JSON"
 var base_time: String = "0200"
 var base_date: String = "20200101"
+// 지역 위치 좌표
 var nx: Int = 59
 var ny: Int = 125
 
@@ -48,7 +49,6 @@ class TestActivity : AppCompatActivity() {
             finish()
         }
 
-
         var currentTime = LocalDateTime.now()
         var dateFormat = DateTimeFormatter.ofPattern("yyyyMMdd")
         var timeFormat = DateTimeFormatter.ofPattern("hhmm")
@@ -57,7 +57,7 @@ class TestActivity : AppCompatActivity() {
 
         //println("Current: $formatted")
         base_date = formattedDate
-        base_time = formattedTime
+        //base_time = formattedTime
 
         println("Current: $base_date, $base_time")
 

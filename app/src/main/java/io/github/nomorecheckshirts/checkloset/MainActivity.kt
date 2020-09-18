@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_paint.setOnClickListener {
+            var intent = Intent(this, paint_test::class.java)
+            startActivity(intent)
+        }
+
         var db= AppDatabase.getInstance(this)
 
         val assetManager: AssetManager = resources.assets

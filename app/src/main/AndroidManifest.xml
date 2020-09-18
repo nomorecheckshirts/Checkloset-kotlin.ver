@@ -3,6 +3,8 @@
     package="io.github.nomorecheckshirts.checkloset">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <!--><activity android:name="io.github.nomorecheckshirts.checkloset.MainActivity"> <!-->
-         <!--https 대신 http 사용 허가-->
+        <activity android:name=".paint_test"></activity>
+        <!-- ><activity android:name="io.github.nomorecheckshirts.checkloset.MainActivity"> <! -->
+        <!-- https 대신 http 사용 허가 -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreferenceActivity"></activity>
-        <activity android:name=".TestActivity"></activity>
-
-        <activity android:name=".CalendarViewActivity"/>
-        <activity android:name=".GalleryViewActivity"/>
+        <activity android:name=".PreferenceActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".CalendarViewActivity" />
+        <activity android:name=".GalleryViewActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" /> <!--인터넷 허용-->
 
 </manifest>

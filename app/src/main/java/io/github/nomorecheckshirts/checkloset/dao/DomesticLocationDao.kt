@@ -1,7 +1,6 @@
 package io.github.nomorecheckshirts.checkloset.dao
 
 import androidx.room.*
-import io.github.nomorecheckshirts.checkloset.entity.CustomClothes
 import io.github.nomorecheckshirts.checkloset.entity.DomesticLocation
 
 @Dao

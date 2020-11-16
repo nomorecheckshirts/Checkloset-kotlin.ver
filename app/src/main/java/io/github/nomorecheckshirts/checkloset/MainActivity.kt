@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_paint.setOnClickListener {
+            var intent = Intent(this, paint_test::class.java)
+            startActivity(intent)
+        }
+
         var db= AppDatabase.getInstance(this)
 
         val assetManager: AssetManager = resources.assets
@@ -58,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                 token[5].toInt()
             )
 
-            //Log.d("dbTest", input.toString())
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.domesticLocationDao().insert(input)
             }
@@ -66,7 +70,6 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch{
             var output = db!!.domesticLocationDao().getAll()
-            //Log.d("dbTest", "$output")
         }
     }
 }
